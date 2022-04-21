@@ -61,7 +61,7 @@ resource "google_cloud_run_service_iam_policy" "noauth" {
   ]
 
   lifecycle {
-    prevent_destroy = var.prevent_destroy
+    prevent_destroy = google_cloud_run_service.main.lifecycle.prevent_destroy
   }
 }
 
