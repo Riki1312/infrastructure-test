@@ -23,3 +23,9 @@ variable "repository" {
   description = "Artifact Registry repository id"
   default     = "docker-repository"
 }
+
+variable "prevent_destroy" {
+  type        = bool
+  description = "Prevent resources destroy"
+  default     = true
+}

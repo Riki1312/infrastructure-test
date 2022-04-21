@@ -36,6 +36,10 @@ resource "google_cloud_run_service" "main" {
       "run.googleapis.com/client-name" = "terraform"
     }
   }
+
+  lifecycle {
+    prevent_destroy = var.prevent_destroy
+  }
 }
 
 data "google_iam_policy" "noauth" {
@@ -55,6 +59,10 @@ resource "google_cloud_run_service_iam_policy" "noauth" {
   depends_on = [
     google_cloud_run_service.main
   ]
+
+  lifecycle {
+    prevent_destroy = var.prevent_destroy
+  }
 }
 
 output "service_url" {
